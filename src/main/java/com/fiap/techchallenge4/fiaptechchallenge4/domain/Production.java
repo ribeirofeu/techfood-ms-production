@@ -1,18 +1,22 @@
-package com.fiap.techchallenge4.fiaptechchallenge4.model;
+package com.fiap.techchallenge4.fiaptechchallenge4.domain;
 
+import lombok.Builder;
+import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDateTime;
 
 @Document
+@Data
+@Builder
 public class Production {
 
     @Id
-    private String id;
+    private ObjectId _id;
     private String orderId;
     private LocalDateTime receivedDate;
-    private String status;
+    private ProductionStatus status;
 
 }
