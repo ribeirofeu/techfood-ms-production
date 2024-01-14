@@ -22,4 +22,11 @@ public class ProductionService {
                 .receivedDate(LocalDateTime.now())
                 .build());
     }
+
+    public Production setStatus(String orderId, ProductionStatus productionStatus) {
+        Production foundProduction = productionRepository.findByOrderId(orderId);
+        foundProduction.setStatus(productionStatus);
+        productionRepository.save(foundProduction);
+        return foundProduction;
+    }
 }
