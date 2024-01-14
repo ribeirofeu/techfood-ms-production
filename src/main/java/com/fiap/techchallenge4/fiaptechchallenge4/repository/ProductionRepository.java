@@ -5,5 +5,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface ProductionRepository extends MongoRepository<Production, String> {
 
+    // Find Production by order id
     Production findByOrderId(String orderId);
 }
