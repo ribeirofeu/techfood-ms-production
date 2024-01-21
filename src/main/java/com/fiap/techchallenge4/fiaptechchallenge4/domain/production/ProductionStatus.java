@@ -1,4 +1,4 @@
-package com.fiap.techchallenge4.fiaptechchallenge4.domain;
+package com.fiap.techchallenge4.fiaptechchallenge4.domain.production;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
