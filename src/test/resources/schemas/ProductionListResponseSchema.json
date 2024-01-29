@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "_id": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "integer"
+          },
+          "date": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "timestamp",
+          "date"
+        ]
+      },
+      "orderId": {
+        "type": "string"
+      },
+      "receivedDate": {
+        "type": "string"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "RECEIVED",
+          "IN_PREPARATION",
+          "READY",
+          "COMPLETED"
+        ]
+      }
+    },
+    "required": [
+      "_id",
+      "orderId",
+      "receivedDate",
+      "status"
+    ]
+  }
+}

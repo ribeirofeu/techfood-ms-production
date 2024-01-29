@@ -2,11 +2,14 @@ package com.fiap.techchallenge4.fiaptechchallenge4.infrastructure.controller;
 
 import com.fiap.techchallenge4.fiaptechchallenge4.application.dto.request.AddProductionDTO;
 import com.fiap.techchallenge4.fiaptechchallenge4.application.dto.request.SetProductionStatusDTO;
+import com.fiap.techchallenge4.fiaptechchallenge4.application.dto.response.ProductionResponse;
 import com.fiap.techchallenge4.fiaptechchallenge4.application.interfaces.usecases.ProductionUseCases;
 import com.fiap.techchallenge4.fiaptechchallenge4.domain.production.Production;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,14 +28,28 @@ public class ProductionController {
 
     @PostMapping
     @Operation(summary = "Adiciona uma nova produção")
-    public Production addProduction(@RequestBody AddProductionDTO addProductionDTO) {
-        return useCases.addProduction(addProductionDTO.orderId());
+    public ResponseEntity<ProductionResponse> addProduction(@RequestBody AddProductionDTO addProductionDTO) {
+        try {
+            Production createdProduction = useCases.addProduction(addProductionDTO.orderId());
+            return ResponseEntity.status(HttpStatus.CREATED).body(ProductionResponse.builder()
+                    .status(createdProduction.getStatus())
+                    .orderId(createdProduction.getOrderId())
+                    .receivedDate(createdProduction.getReceivedDate())
+                    .build());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @PutMapping("/{orderId}")
     @Operation(summary = "Atualiza o status de uma produção")
-    public Production setProductionStatus(@PathVariable String orderId, @RequestBody SetProductionStatusDTO setProductionStatusDTO) {
-        return useCases.setProductionStatus(orderId, setProductionStatusDTO.status());
+    public ProductionResponse setProductionStatus(@PathVariable String orderId, @RequestBody SetProductionStatusDTO setProductionStatusDTO) {
+        Production updatedProduction = useCases.setProductionStatus(orderId, setProductionStatusDTO.status());
+        return ProductionResponse.builder()
+                .status(updatedProduction.getStatus())
+                .orderId(updatedProduction.getOrderId())
+                .receivedDate(updatedProduction.getReceivedDate())
+                .build();
     }
 
     @GetMapping("/")

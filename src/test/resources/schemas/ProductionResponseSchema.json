@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "orderId": {
+      "type": "string"
+    },
+    "receivedDate": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "RECEIVED",
+        "IN_PREPARATION",
+        "READY",
+        "COMPLETED"
+      ]
+    }
+  },
+  "required": [
+    "orderId",
+    "receivedDate",
+    "status"
+  ]
+}

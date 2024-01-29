@@ -6,6 +6,7 @@ import com.fiap.techchallenge4.fiaptechchallenge4.domain.production.ProductionSt
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class ProductionBdRepository implements ProductionRepository {
@@ -17,7 +18,7 @@ public class ProductionBdRepository implements ProductionRepository {
     }
 
     @Override
-    public Production findByOrderId(String orderId) {
+    public Optional<Production> findByOrderId(String orderId) {
         return repository.findByOrderId(orderId);
     }
 
