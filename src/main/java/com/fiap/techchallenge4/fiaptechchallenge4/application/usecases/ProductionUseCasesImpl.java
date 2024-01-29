@@ -1,6 +1,5 @@
 package com.fiap.techchallenge4.fiaptechchallenge4.application.usecases;
 
-import com.fiap.techchallenge4.fiaptechchallenge4.application.dto.request.AddProductionDTO;
 import com.fiap.techchallenge4.fiaptechchallenge4.application.interfaces.gateways.ProductionRepository;
 import com.fiap.techchallenge4.fiaptechchallenge4.application.interfaces.usecases.ProductionUseCases;
 import com.fiap.techchallenge4.fiaptechchallenge4.domain.production.Production;
@@ -21,6 +20,10 @@ public class ProductionUseCasesImpl implements ProductionUseCases {
 
     @Override
     public Production addProduction(String orderId) {
+        repository.findByOrderId(orderId).ifPresent(production -> {
+            throw new IllegalArgumentException("Production with order id " + orderId + " already exists");
+        });
+
         return repository.insert(Production.builder()
                 .orderId(orderId)
                 .status(ProductionStatus.RECEIVED)
@@ -30,10 +33,11 @@ public class ProductionUseCasesImpl implements ProductionUseCases {
 
     @Override
     public Production setProductionStatus(String orderId, ProductionStatus productionStatus) {
-        Production foundProduction = repository.findByOrderId(orderId);
+        Production foundProduction = repository.findByOrderId(orderId)
+                .orElseThrow(() -> new IllegalArgumentException("Production with order id " + orderId + " not found"));
+
         foundProduction.setStatus(productionStatus);
-        repository.save(foundProduction);
-        return foundProduction;
+        return repository.save(foundProduction);
     }
 
     @Override
