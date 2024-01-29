@@ -11,7 +11,7 @@
 	<groupId>com.fiap.techchallenge4</groupId>
 	<artifactId>fiap-techchallenge4</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>fiap-techchallenge4</name>
+	<name>techfood-ms-production</name>
 	<description>Sprint Boot and Spring Data Mongo</description>
 	<properties>
 		<java.version>17</java.version>
