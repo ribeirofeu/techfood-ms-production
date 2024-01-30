@@ -8,7 +8,6 @@ import com.fiap.techchallenge4.fiaptechchallenge4.domain.production.ProductionSt
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ProductionUseCasesImpl implements ProductionUseCases {
 
