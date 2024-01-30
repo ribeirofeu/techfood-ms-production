@@ -46,6 +46,6 @@ public class ProductionUseCasesImpl implements ProductionUseCases {
                 .filter(production -> production.getReceivedDate() != null)
                 .sorted(Comparator.comparing((Production production) -> production.getStatus().getDisplayPriority())
                         .thenComparing(Production::getReceivedDate))
-                .collect(Collectors.toList());
+                .toList();
     }
 }

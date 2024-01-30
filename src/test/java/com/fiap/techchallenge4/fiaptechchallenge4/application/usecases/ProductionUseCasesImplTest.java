@@ -118,7 +118,7 @@ public class ProductionUseCasesImplTest {
         }
 
         @Test
-        public void testGetNotCompletedProduction_Success() {
+        void testGetNotCompletedProduction_Success() {
             // Given
             List<Production> mockProductions = Arrays.asList(
                     Production.builder()._id(new ObjectId())
