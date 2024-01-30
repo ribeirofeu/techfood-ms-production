@@ -8,7 +8,6 @@ import com.fiap.techchallenge4.fiaptechchallenge4.domain.production.ProductionSt
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ProductionUseCasesImpl implements ProductionUseCases {
 
@@ -46,6 +45,6 @@ public class ProductionUseCasesImpl implements ProductionUseCases {
                 .filter(production -> production.getReceivedDate() != null)
                 .sorted(Comparator.comparing((Production production) -> production.getStatus().getDisplayPriority())
                         .thenComparing(Production::getReceivedDate))
-                .collect(Collectors.toList());
+                .toList();
     }
 }
