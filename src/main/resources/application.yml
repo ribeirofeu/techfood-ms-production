@@ -13,6 +13,6 @@ spring:
         secret-key: ${AWS_SECRET_KEY}
 
 events:
-  output: "arn:aws:sns:us-east-1:027260563052:received_payments_topic"
+  output: "arn:aws:sns:us-east-1:027260563052:produced_orders_topic"
   queues:
     received_payment: "received_payment_ms_production_queue"
