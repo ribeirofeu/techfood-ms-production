@@ -5,11 +5,13 @@ import com.fiap.techchallenge4.fiaptechchallenge4.infrastructure.messaging.event
 import io.awspring.cloud.sqs.annotation.SqsListener;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
 @AllArgsConstructor
+@Profile("!test")
 public class ReceivedPaymentListener {
     private ProductionUseCases productionUseCases;
 
