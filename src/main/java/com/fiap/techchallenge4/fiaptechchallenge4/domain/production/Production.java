@@ -16,6 +16,7 @@ public class Production {
     @Id
     private ObjectId _id;
     private String orderId;
+    private Long customerId;
     private LocalDateTime receivedDate;
     private ProductionStatus status;
 

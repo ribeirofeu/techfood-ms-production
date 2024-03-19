@@ -1,4 +1,18 @@
+server:
+  port: 8082
 spring:
   data:
     mongodb:
       uri: ${MONGO_URL}
+  cloud:
+    aws:
+      region:
+        static: us-east-1
+      credentials:
+        access-key: ${AWS_ACCESS_KEY}
+        secret-key: ${AWS_SECRET_KEY}
+
+events:
+  output: "arn:aws:sns:us-east-1:027260563052:received_payments_topic"
+  queues:
+    received_payment: "received_payment_ms_production_queue"
