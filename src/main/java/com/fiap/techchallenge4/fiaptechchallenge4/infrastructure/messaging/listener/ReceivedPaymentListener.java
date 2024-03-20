@@ -17,7 +17,7 @@ public class ReceivedPaymentListener {
 
     @SqsListener(value = "${events.queues.received_payment}")
     public void listenReceivedPaymentEvent(ReceivedPaymentStatusEvent event) {
-        log.info("Evento de recebimento de pagamento recebido. Iniciando produção de Order Id: {}", event.getOrderId());
+        log.info("Evento de recebimento de pagamento recebido. Criando produção de Order Id: {}", event.getOrderId());
         try {
             if (event.getPaymentStatus().equals("APPROVED")) {
                 productionUseCases.addProduction(event.getOrderId().toString());
