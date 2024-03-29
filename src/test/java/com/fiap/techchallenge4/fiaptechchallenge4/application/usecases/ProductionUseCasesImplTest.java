@@ -1,5 +1,6 @@
 package com.fiap.techchallenge4.fiaptechchallenge4.application.usecases;
 
+import com.fiap.techchallenge4.fiaptechchallenge4.application.interfaces.gateways.ProductionMessageSender;
 import com.fiap.techchallenge4.fiaptechchallenge4.application.interfaces.gateways.ProductionRepository;
 import com.fiap.techchallenge4.fiaptechchallenge4.domain.production.Production;
 import com.fiap.techchallenge4.fiaptechchallenge4.domain.production.ProductionStatus;
@@ -30,12 +31,15 @@ public class ProductionUseCasesImplTest {
     @Mock
     private ProductionRepository repository;
 
+    @Mock
+    private ProductionMessageSender productionMessageSender;
+
     AutoCloseable openMocks;
 
     @BeforeEach
     public void setUp() {
         openMocks = MockitoAnnotations.openMocks(this);
-        productionUseCases = new ProductionUseCasesImpl(repository);
+        productionUseCases = new ProductionUseCasesImpl(repository, productionMessageSender);
     }
 
     @AfterEach

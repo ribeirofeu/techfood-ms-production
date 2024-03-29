@@ -19,7 +19,7 @@ import java.util.List;
 @Tag(name = "Produção")
 public class ProductionController {
 
-    private ProductionUseCases useCases;
+    private final ProductionUseCases useCases;
 
     @Autowired
     public ProductionController(ProductionUseCases useCases) {
