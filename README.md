@@ -15,3 +15,17 @@ Interceptamos os seguintes fluxos dos seguintes serviços:
 Link do drive contendo o .zip com o report e imagens do Zap mostrando o Scan e as rotas. Nenhuma vulnerabilidade alta foi encontrada antes, então não foi necessária nenhuma alteração de código.
 
 https://drive.google.com/drive/folders/1ZbqH0qZuAqJelfGKluSGw59cUEAHhmOc?usp=sharing
+
+## Relatório de Impacto à Proteção de Dados (RIPD)
+
+Relatório de Impacto à Proteção de Dados Pessoais que visa descrever os processos de tratamento de dados pessoais que podem gerar riscos às liberdades civis e aos direitos fundamentais, bem como medidas, salvaguardas e mecanismos de mitigação de risco. O tratamento descrito neste documento envolve a coleta, armazenamento e processamento dos dados pessoais dos clientes. 
+
+No documento corrente estão descritos os seguintes assuntos:
+- Objetivo
+- Identificação dos Agentes de Tratamento
+- Necessidade de Elaborar o Relatório
+- Descrição do Tratamento
+- Necessidade e Proporcionalidade
+- Identificação e Avaliação de Riscos
+
+[Link do Relatório](https://drive.google.com/file/d/1-le6QO5-88kyiuXsPV5qOxdMIHSVSjcd/view?usp=drive_link)
